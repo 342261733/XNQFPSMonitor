@@ -60,7 +60,9 @@ typedef NS_ENUM(NSUInteger, kMonitorStatus) {
 }
 
 - (void)show {
+    UIWindow *oriKey = [UIApplication sharedApplication].keyWindow;
     [self makeKeyAndVisible];
+    [oriKey makeKeyAndVisible];
 }
 
 - (void)dismiss {

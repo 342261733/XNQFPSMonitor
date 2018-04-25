@@ -89,12 +89,12 @@
 		54AA05922090572000DFD1DC /* FPSMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				54AA05932090572000DFD1DC /* XNQMonitorWindow.m */,
-				54AA05942090572000DFD1DC /* XNQFPSMonitor.m */,
 				54AA05952090572000DFD1DC /* XNQMonitorManager.h */,
-				54AA05962090572000DFD1DC /* XNQMonitorWindow.h */,
-				54AA05972090572000DFD1DC /* XNQFPSMonitor.h */,
 				54AA05982090572000DFD1DC /* XNQMonitorManager.m */,
+				54AA05962090572000DFD1DC /* XNQMonitorWindow.h */,
+				54AA05932090572000DFD1DC /* XNQMonitorWindow.m */,
+				54AA05972090572000DFD1DC /* XNQFPSMonitor.h */,
+				54AA05942090572000DFD1DC /* XNQFPSMonitor.m */,
 			);
 			path = FPSMonitor;
 			sourceTree = "<group>";

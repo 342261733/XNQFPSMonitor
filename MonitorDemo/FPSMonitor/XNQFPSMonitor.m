@@ -46,11 +46,16 @@ static const NSInteger kFPSExpectPerSecond = 30; // 期望每秒回调次数
     if(self = [super init]) {
         _isPause = YES;
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick)];
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-        _displayLink.preferredFramesPerSecond = kFPSExpectPerSecond;
-#else
-        _displayLink.frameInterval = 60 / kFPSExpectPerSecond;
-#endif
+        if (@available(iOS 10.0, *)) {
+            _displayLink.preferredFramesPerSecond = kFPSExpectPerSecond;
+        }
+        else {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+            _displayLink.frameInterval = 60 / kFPSExpectPerSecond;
+#pragma GCC diagnostic pop
+        }
+
         [_displayLink setPaused:YES];
         [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     }
@@ -61,14 +66,19 @@ static const NSInteger kFPSExpectPerSecond = 30; // 期望每秒回调次数
 - (void)displayLinkTick {
     if (_lastUpdateTimestamp <= 0) {
         _lastUpdateTimestamp = _displayLink.timestamp;
-    
+        
         return;
     }
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-    _timesCount += 60.0 / _displayLink.preferredFramesPerSecond;
-#else
-    _timesCount += _displayLink.frameInterval;
-#endif
+    if (@available(iOS 10.0, *)) {
+        _timesCount += 60.0 / _displayLink.preferredFramesPerSecond;
+    }
+    else {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+        _timesCount += _displayLink.frameInterval;
+#pragma GCC diagnostic pop
+    }
+
     CFTimeInterval interval = _displayLink.timestamp - _lastUpdateTimestamp;
     if(interval >= 1) {
         _lastUpdateTimestamp = _displayLink.timestamp;
