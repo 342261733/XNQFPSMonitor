@@ -8,11 +8,12 @@
 
 #import "XNQMonitorManager.h"
 #import "XNQFPSMonitor.h"
-#import "XNQMonitorWindow.h"
+//#import "XNQMonitorWindow.h"
+#import "XNQMonitorView.h"
 #import <sys/utsname.h>
 
 @interface XNQMonitorManager()<FPSMonitorDelegate> {
-    XNQMonitorWindow *_monitorView;
+    XNQMonitorView   *_monitorView;
     XNQFPSMonitor    *_fpsMonitor;
 }
 
@@ -46,11 +47,27 @@
     return self;
 }
 
+//- (void)setupUI {
+//    CGFloat iphoneXoffset = [self isIphoneX] ? 34 : 0;
+//    CGRect frame = CGRectMake(80, 0 + iphoneXoffset, 60, 20);
+//    _monitorView = [[XNQMonitorWindow alloc] initWithFrame:frame];
+//    [_monitorView show];
+//}
+
 - (void)setupUI {
     CGFloat iphoneXoffset = [self isIphoneX] ? 34 : 0;
-    CGRect frame = CGRectMake(80, 0 + iphoneXoffset, 60, 20);
-    _monitorView = [[XNQMonitorWindow alloc] initWithFrame:frame];
-    [_monitorView show];
+    CGFloat oriX = [UIScreen mainScreen].bounds.size.width / 2.0 - 86;
+    CGRect frame = CGRectMake(oriX, 0 + iphoneXoffset, 60, 20);
+    _monitorView = [[XNQMonitorView alloc] initWithFrame:frame];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    if (!keyWindow) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+            [keyWindow addSubview:self->_monitorView];
+        });
+        return;
+    }
+    [keyWindow addSubview:_monitorView];
 }
 
 - (void)setupMonitor {
@@ -72,8 +89,12 @@
     [_fpsMonitor pause];
 }
 
+//- (void)dismissFPS {
+//    [_monitorView dismiss];
+//}
+
 - (void)dismissFPS {
-    [_monitorView dismiss];
+    [_monitorView removeFromSuperview];
 }
 
 #pragma mark - Monitor delegate

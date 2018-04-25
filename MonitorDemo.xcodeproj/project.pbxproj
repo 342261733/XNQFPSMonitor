@@ -17,6 +17,7 @@
 		54AA05992090572000DFD1DC /* XNQMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AA05932090572000DFD1DC /* XNQMonitorWindow.m */; };
 		54AA059A2090572000DFD1DC /* XNQFPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AA05942090572000DFD1DC /* XNQFPSMonitor.m */; };
 		54AA059B2090572000DFD1DC /* XNQMonitorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AA05982090572000DFD1DC /* XNQMonitorManager.m */; };
+		54AA05A120909DA100DFD1DC /* XNQMonitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AA05A020909DA100DFD1DC /* XNQMonitorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		54AA05962090572000DFD1DC /* XNQMonitorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNQMonitorWindow.h; sourceTree = "<group>"; };
 		54AA05972090572000DFD1DC /* XNQFPSMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNQFPSMonitor.h; sourceTree = "<group>"; };
 		54AA05982090572000DFD1DC /* XNQMonitorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNQMonitorManager.m; sourceTree = "<group>"; };
+		54AA059F20909DA100DFD1DC /* XNQMonitorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNQMonitorView.h; sourceTree = "<group>"; };
+		54AA05A020909DA100DFD1DC /* XNQMonitorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XNQMonitorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				54AA05982090572000DFD1DC /* XNQMonitorManager.m */,
 				54AA05962090572000DFD1DC /* XNQMonitorWindow.h */,
 				54AA05932090572000DFD1DC /* XNQMonitorWindow.m */,
+				54AA059F20909DA100DFD1DC /* XNQMonitorView.h */,
+				54AA05A020909DA100DFD1DC /* XNQMonitorView.m */,
 				54AA05972090572000DFD1DC /* XNQFPSMonitor.h */,
 				54AA05942090572000DFD1DC /* XNQFPSMonitor.m */,
 			);
@@ -174,6 +179,7 @@
 				54AA05992090572000DFD1DC /* XNQMonitorWindow.m in Sources */,
 				541EC081208E140500B5C438 /* AppDelegate.m in Sources */,
 				54AA059A2090572000DFD1DC /* XNQFPSMonitor.m in Sources */,
+				54AA05A120909DA100DFD1DC /* XNQMonitorView.m in Sources */,
 				54AA059B2090572000DFD1DC /* XNQMonitorManager.m in Sources */,
 				541EC0B2208F398C00B5C438 /* NextViewController.m in Sources */,
 			);
